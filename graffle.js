@@ -84,10 +84,10 @@ window.onload = function () {
                 ];
     for (var i = 0, ii = shapes.length; i < ii; i++) {
         var color = Raphael.getColor();
-        shapes[i].attr({fill: color, stroke: color, "fill-opacity": 0, "stroke-width": 2, cursor: "move"});
+        shapes[i].attr({fill: color, stroke: color, "fill-opacity": 0, "stroke-width": 1, cursor: "move"});
         shapes[i].drag(move, dragger, up); //undo this to prevent movement
     }
-    shapes[0].click(function () {
+    shapes[1].click(function () {
     this.cx = this.cx || 300;
     this.animate({cx: this.cx, "stroke-width": this.cx / 100, fill: this.cx - 100 ? "hsb(0, .75, .75)" : "#000", "fill-opacity": +!!(this.cx - 100)}, 1000);
     this.cx = this.cx == 300 ? 100 : 300;
