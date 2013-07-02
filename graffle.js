@@ -75,22 +75,27 @@ window.onload = function () {
         },
         r = Raphael("holder", 4000, 4000),
         connections = [],
-        shapes = [  r.ellipse(190, 100, 30, 20),
-                    r.rect(290, 80, 60, 40, 10),
-                    r.rect(290, 180, 60, 40, 2),
+        shapes = [  r.ellipse(890, 500, 30, 20),
+                    r.rect(790, 580, 60, 40, 10),
+                    r.rect(690, 480, 60, 40, 2),
                     // r.circle(320, 240, 60).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 2000),
-                    r.ellipse(450, 100, 70, 70),
-                    r.ellipse(150,130,100,150)
+                    r.ellipse(550, 600, 70, 70),
+                    r.ellipse(450,550,100,150)
                 ];
     for (var i = 0, ii = shapes.length; i < ii; i++) {
         var color = Raphael.getColor();
         shapes[i].attr({fill: color, stroke: color, "fill-opacity": 0, "stroke-width": 2, cursor: "move"});
         shapes[i].drag(move, dragger, up); //undo this to prevent movement
     }
-    connections.push(r.connection(shapes[0], shapes[1], "#505253"));
+    shapes[0].click(function () {
+    this.cx = this.cx || 300;
+    this.animate({cx: this.cx, "stroke-width": this.cx / 100, fill: this.cx - 100 ? "hsb(0, .75, .75)" : "#000", "fill-opacity": +!!(this.cx - 100)}, 1000);
+    this.cx = this.cx == 300 ? 100 : 300;
+    });
+    connections.push(r.connection(shapes[0], shapes[1], "#fff", "#fff|5"));
     connections.push(r.connection(shapes[1], shapes[2], "#fff", "#fff|5"));
     connections.push(r.connection(shapes[1], shapes[3], "#000", "#fff"));
-    connections.push(r.connection(shapes[1], shapes[4], "#505253", "#505253"));
+    connections.push(r.connection(shapes[1], shapes[4], "#fff", "#fff"));
     shapes[1].click(function(event) {
     shapes[1].attr({fill: "blue"});
 });
