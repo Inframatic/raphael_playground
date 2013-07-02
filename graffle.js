@@ -85,9 +85,9 @@ window.onload = function () {
     for (var i = 0, ii = shapes.length; i < ii; i++) {
         var color = Raphael.getColor();
         shapes[i].attr({fill: color, stroke: color, "fill-opacity": 0, "stroke-width": 2, cursor: "move"});
-        shapes[i].drag(move, dragger, up);
+        shapes[i].drag(move, dragger, up); //undo this to prevent movement
     }
-    connections.push(r.connection(shapes[0], shapes[1], "#0101DF"));
+    connections.push(r.connection(shapes[0], shapes[1], "#505253"));
     connections.push(r.connection(shapes[1], shapes[2], "#fff", "#fff|5"));
     connections.push(r.connection(shapes[1], shapes[3], "#000", "#fff"));
     connections.push(r.connection(shapes[1], shapes[4], "#505253", "#505253"));
