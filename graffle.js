@@ -92,19 +92,21 @@ window.onload = function () {
         shapes[i].attr({fill: color, stroke: color, "fill-opacity": 0, "stroke-width": 1, cursor: "move"});
         // shapes[i].drag(move, dragger, up); //undo this to prevent movement
     }
-    circle = r.ellipse(890,530, 30, 20)
+    circle = r.ellipse(890,530, 30, 20) //creates circle
     circle.attr({"stroke": "none",
-            fill: "#446093"});
+            fill: "#fff"});
     
-    hoverArea = r.circle(890,0, 30, 20)
+    hoverArea = r.circle(890,580, 30, 20) //creates area of hover
     hoverArea.attr({stroke: "none",
         fill: "#f00",
         "fill-opacity": .5});
-    circle.hover(function () {
-        circle.attr({"stroke": "#FFF"});
+    circle.hover(function () { //the actual hover function
+        circle.attr({"stroke": "#fff",
+        fill: "#228219"});
         },
         function () {
-            circle.attr({"stroke": "none"});
+            circle.attr({"stroke": "none",
+                fill: "#fff"});
         }
     );
     shapes[1].click(function () {
