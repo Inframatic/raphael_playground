@@ -55,6 +55,8 @@ Raphael.fn.connection = function (obj1, obj2, line, bg) {
     }
 };
 
+
+
 var el;
 window.onload = function () {
     var dragger = function () {
