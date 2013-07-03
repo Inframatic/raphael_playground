@@ -59,6 +59,9 @@ Raphael.fn.connection = function (obj1, obj2, line, bg) {
 
 var el;
 window.onload = function () {
+    var labels = ["shit", "fuck", "kurwa"],
+        data = [];
+            
     var dragger = function () {
         this.ox = this.type == "rect" ? this.attr("x") : this.attr("cx");
         this.oy = this.type == "rect" ? this.attr("y") : this.attr("cy");
@@ -87,8 +90,23 @@ window.onload = function () {
     for (var i = 0, ii = shapes.length; i < ii; i++) {
         var color = Raphael.getColor();
         shapes[i].attr({fill: color, stroke: color, "fill-opacity": 0, "stroke-width": 1, cursor: "move"});
-        shapes[i].drag(move, dragger, up); //undo this to prevent movement
+        // shapes[i].drag(move, dragger, up); //undo this to prevent movement
     }
+    circle = r.ellipse(890,530, 30, 20)
+    circle.attr({"stroke": "none",
+            fill: "#446093"});
+    
+    hoverArea = r.circle(890,0, 30, 20)
+    hoverArea.attr({stroke: "none",
+        fill: "#f00",
+        "fill-opacity": .5});
+    circle.hover(function () {
+        circle.attr({"stroke": "#FFF"});
+        },
+        function () {
+            circle.attr({"stroke": "none"});
+        }
+    );
     shapes[1].click(function () {
     this.cx = this.cx || 300;
     this.animate({cx: this.cx, "stroke-width": this.cx / 100, fill: this.cx - 100 ? "hsb(0, .75, .75)" : "#000", "fill-opacity": +!!(this.cx - 100)}, 1000);
