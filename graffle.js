@@ -92,10 +92,37 @@ window.onload = function () {
         // shapes[i].drag(move, dragger, up); //undo this to prevent movement
     }
 
+// STORAGE FOR CURRENT ABILITY FUNCTIONS (empty)
+var projectile = {};
+// projectile.p_ae = r.path(r.ellipse(690, 300, 30, 20));
+var current = null;
+for (var skill in projectile) { //state in aus
+    projectile[skill].color = Raphael.getColor();
+    (function (st, skill) {
+        st[0].style.cursor = "pointer";
+        st[0].onmouseover = function () {
+            current && projectile[current].animate({fill: "#00065b", stroke: "#00065b"}, 500) && (document.getElementById(current).style.display = "");
+            st.animate({fill: st.color, stroke: "#ccc"}, 500);
+            st.toFront();
+            r.safari();
+            document.getElementById("p_ae").style.display = "block";
+            current = skill;
+        };
+        st[0].onmouseover = function () {
+            st.animate({fill: "#d031a6", stroke: "#d031a6"}, 500);
+            st.toFront();
+            r.safari();
+        };
+        if (skill == "primaryprojectile") {
+            st[0].onmouseover();
+        }
+    })(projectile[skill], skill);
+}
     circle = r.ellipse(590,230, 30, 20) //creates circle
     circle.attr({"stroke": "none",
             fill: "#fff"});
     
+
     hoverArea = r.circle(590,280, 30, 20) //creates area of hover
     hoverArea.attr({stroke: "none",
         fill: "#f00",
@@ -126,28 +153,4 @@ window.onload = function () {
 
 });
 };
-//STORAGE FOR CURRENT ABILITY FUNCTIONS (in repair)
-// var projectile = {};
-// var current = null;
-// for (var skill in projectile) { //state in aus
-//     projectile[skill].color = Raphael.getColor();
-//     (function (shapes, skill) {
-//         shapes[0].style.cursor = "pointer";
-//         shapes[0].onmouseover = function () {
-//             current && projectile[current].animate({fill: "#333", stroke: "#666"}, 500) && (document.getElementById(current).style.display = "");
-//             shapes.animate({fill: shapes.color, stroke: "#ccc"}, 500);
-//             shapes.toFront();
-//             r.safari();
-//             document.getElementById(state).style.display = "block";
-//             current = skill;
-//         };
-//         shapes[0].onclick = function () {
-//             shapes.animate({fill: "#d031a6", stroke: "#d031a6"}, 500);
-//             shapes.toFront();
-//             r.safari();
-//         };
-//         if (skill == "primaryprojectile") {
-//             shapes[0].onmouseover();
-//         }
-//     })(projectiles[skill], skill);
-// }
+

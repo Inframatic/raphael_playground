@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Raphaël · Graffle</title>
+        <script src="jquery.js"></script>
+        <script src="raphael.js" type="text/javascript" charset="utf-8"></script>
+<!--         // <script src="graffle.js" type="text/javascript" charset="utf-8"></script> -->
+        <!-- <script src="popup.js"></script> -->
+        <script type="text/javascript">
+	        $(document).ready(function() {
+	        	window.paper = Raphael("raphael", 500, 500);
+	        	// window.circle = paper.circle(125, 125, 100);
+	        	// window.circle2 = paper.circle(250, 250, 100);
+
+	        	// circle.attr("fill", "red");
+	        	// circle2.attr("fill", "green");
+
+	        	// circle.click(function(e) {
+	        	// 	circle.attr("fill", "blue");
+	        	// 	$('#primaryprojectile').toggle();
+	        	// });
+
+	        	// circle2.click(function(e) {
+	        	// 	this.attr("fill", "orange");
+	        	// 	$('#p_ae').toggle();
+	        	// });
+
+	        	// Grab your data and store in an array
+	        	var data = [{description: "Cool ability"}, {description: "Shitty ability"}, {description: "Meh ability"}];
+
+	        	{
+	        		description: "desc",
+	        		effect: "effect",
+	        		range: "range"
+	        	}
+
+	        	// Starts at the end of the array and loops backwards
+	        	for (var i = data.length - 1; i >= 0; i--) {
+	        		var x = (i+1) * 125;
+	        		var y = (i+1) * 125;
+	        		var r = 100;
+	        		
+	        		paper.circle(x, y, r)
+	        				 .attr("fill", Raphael.getColor())
+	     						 .data("desc", data[i].description)
+									 .click(function() {
+	        						$('#holder').text(this.data("desc"));
+	        				 });
+	        	};
+
+	        });
+        </script>
+
+        <style type="text/css">
+        	#primaryprojectile,
+        	#p_ae {
+        		display: none;
+        	}
+        </style>
+    </head>
+    <body>
+
+        <div id="raphael"></div>
+        <div id="holder"></div>
+        <div id="infoholder">
+            
+            <div id="primaryprojectile">
+                <h1>Projectile</h1>
+                <p>
+                    Ability Description <br>
+                    This is what it does! <br>
+                    Some stats<br>
+                    Dmg<br>
+                    Range
+                </p>
+            </div>
+            <div id="p_ae">
+                <h2> Area Effect</h2>
+                <p>
+                    Adds an area effect to projectile on impact.<br>
+                    Affect on effects of projectile: +2 area effect range, -35% on total effect. <br>
+                    Range: -1
+                </p>
+            </div>
+        <div id="footer"></div>
+        
+    </body>
+</html>

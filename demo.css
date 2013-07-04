@@ -34,14 +34,17 @@ body {
     margin: -340px 0 0 -320px;
     position: absolute;
     top: 100%;
-    width: 940px;
+    width: 340px;
     border: 5px solid red;
 }
 
-#primaryprojectile {
+#primaryprojectile, #p_ae {
     display: none;
+    height: 400px;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 300px;
 }
 
-#p_aoe {
-    display:none;
-}
