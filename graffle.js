@@ -78,35 +78,37 @@ window.onload = function () {
         up = function () {
             this.animate({"fill-opacity": .9}, 500);
         },
-        r = Raphael("holder", 4000, 4000),
+        r = Raphael("holder", 1000, 430),
         connections = [],
-        shapes = [  r.ellipse(890, 500, 30, 20),
-                    r.rect(790, 580, 60, 40, 10),
-                    r.rect(690, 480, 60, 40, 2),
+        shapes = [  r.ellipse(690, 300, 30, 20),
+                    r.rect(590, 280, 60, 40, 10),
+                    r.rect(490, 180, 60, 40, 2),
                     // r.circle(320, 240, 60).animate({fill: "#223fa3", stroke: "#000", "stroke-width": 80, "stroke-opacity": 0.5}, 2000),
-                    r.ellipse(550, 600, 70, 70),
-                    r.ellipse(450,550,100,150)
+                    r.ellipse(350, 300, 70, 70),
+                    r.ellipse(250,250,100,150)
                 ];
     for (var i = 0, ii = shapes.length; i < ii; i++) {
         var color = Raphael.getColor();
         shapes[i].attr({fill: color, stroke: color, "fill-opacity": 0, "stroke-width": 1, cursor: "move"});
         // shapes[i].drag(move, dragger, up); //undo this to prevent movement
     }
-    circle = r.ellipse(890,530, 30, 20) //creates circle
+    circle = r.ellipse(590,230, 30, 20) //creates circle
     circle.attr({"stroke": "none",
             fill: "#fff"});
     
-    hoverArea = r.circle(890,580, 30, 20) //creates area of hover
+    hoverArea = r.circle(590,280, 30, 20) //creates area of hover
     hoverArea.attr({stroke: "none",
         fill: "#f00",
         "fill-opacity": .5});
     circle.hover(function () { //the actual hover function
         circle.attr({"stroke": "#fff",
         fill: "#228219"});
+        $("#holder").append("<p>MouseOver</p>"); //works
         },
         function () {
-            circle.attr({"stroke": "none",
+            circle.attr({"stroke": "none", //Activates when i hover off the item
                 fill: "#fff"});
+            
         }
     );
     shapes[1].click(function () {
