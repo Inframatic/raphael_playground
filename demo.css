@@ -1,15 +1,16 @@
 body {
-    background: #333;
+    background: #fff0d4;
     color: #fff;
     font: 300 100.1% "Helvetica Neue", Helvetica, "Arial Unicode MS", Arial, sans-serif;
 }
 #holder {
     height: 580px;
     left: 50%;
-    margin: -340px 0 0 -320px;
+    margin: -380px 0 0 -320px;
     position: absolute;
-    top: 50%;
+    top: 40%;
     width: 940px;
+    border: 5px solid red;
 }
 #copy {
     bottom: 0;
@@ -23,5 +24,24 @@ body {
 }
 
 #infoholder {
-    
+/*    left: 50%;
+    margin: -120px 0 0 -240px;
+    position: absolute;
+    width: 940px;
+    border: 5px solid black;*/
+    height: 280px;
+    left: 50%;
+    margin: -340px 0 0 -320px;
+    position: absolute;
+    top: 100%;
+    width: 940px;
+    border: 5px solid red;
+}
+
+#primaryprojectile {
+    display: none;
+}
+
+#p_aoe {
+    display:none;
 }

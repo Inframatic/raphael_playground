@@ -18,3 +18,12 @@ body {
     right: 1em;
     text-align: right;
 }
+
+#infoholder {
+    left: 50%;
+    margin: -320px 0 0 -340px;
+    bottom: 0;
+    position: absolute;
+    width: 940px;
+    border: 5px solid black;
+}

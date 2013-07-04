@@ -103,10 +103,10 @@ window.onload = function () {
     circle.hover(function () { //the actual hover function
         circle.attr({"stroke": "#fff",
         fill: "#228219"});
-        $("#holder").append("<p>MouseOver</p>"); //works
+        $("#holder").append("<p>MouseOver</p>");
         },
         function () {
-            circle.attr({"stroke": "none", //Activates when i hover off the item
+            circle.attr({"stroke": "none",
                 fill: "#fff"});
             
         }

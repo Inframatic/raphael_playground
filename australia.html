@@ -66,8 +66,8 @@
                         document.getElementById(state).style.display = "block";
                         current = state;
                     };
-                    st[0].onmouseout = function () {
-                        st.animate({fill: "#333", stroke: "#666"}, 500);
+                    st[0].onclick = function () {
+                        st.animate({fill: "#d031a6", stroke: "#d031a6"}, 500);
                         st.toFront();
                         R.safari();
                     };
