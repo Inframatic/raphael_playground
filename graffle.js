@@ -55,8 +55,7 @@ Raphael.fn.connection = function (obj1, obj2, line, bg) {
     }
 };
 
-
-
+//create shapes and holders. Execution
 var el;
 window.onload = function () {
     var labels = ["shit", "fuck", "kurwa"],
@@ -92,6 +91,7 @@ window.onload = function () {
         shapes[i].attr({fill: color, stroke: color, "fill-opacity": 0, "stroke-width": 1, cursor: "move"});
         // shapes[i].drag(move, dragger, up); //undo this to prevent movement
     }
+
     circle = r.ellipse(590,230, 30, 20) //creates circle
     circle.attr({"stroke": "none",
             fill: "#fff"});
@@ -111,16 +111,43 @@ window.onload = function () {
             
         }
     );
+
     shapes[1].click(function () {
     this.cx = this.cx || 300;
     this.animate({cx: this.cx, "stroke-width": this.cx / 100, fill: this.cx - 100 ? "hsb(0, .75, .75)" : "#000", "fill-opacity": +!!(this.cx - 100)}, 1000);
     this.cx = this.cx == 300 ? 100 : 300;
     });
-    connections.push(r.connection(shapes[0], shapes[1], "#fff", "#fff|5"));
-    connections.push(r.connection(shapes[1], shapes[2], "#fff", "#fff|5"));
-    connections.push(r.connection(shapes[1], shapes[3], "#000", "#fff"));
-    connections.push(r.connection(shapes[1], shapes[4], "#fff", "#fff"));
+    connections.push(r.connection(shapes[0], shapes[1], "#5b5359", "#5b5359"));
+    connections.push(r.connection(shapes[1], shapes[2], "#5b5359", "#5b5359"));
+    connections.push(r.connection(shapes[1], shapes[3], "#5b5359", "#5b5359"));
+    connections.push(r.connection(shapes[1], shapes[4], "#5b5359", "#5b5359"));
     shapes[1].click(function(event) {
     shapes[1].attr({fill: "blue"});
+
 });
 };
+//STORAGE FOR CURRENT ABILITY FUNCTIONS (in repair)
+// var projectile = {};
+// var current = null;
+// for (var skill in projectile) { //state in aus
+//     projectile[skill].color = Raphael.getColor();
+//     (function (shapes, skill) {
+//         shapes[0].style.cursor = "pointer";
+//         shapes[0].onmouseover = function () {
+//             current && projectile[current].animate({fill: "#333", stroke: "#666"}, 500) && (document.getElementById(current).style.display = "");
+//             shapes.animate({fill: shapes.color, stroke: "#ccc"}, 500);
+//             shapes.toFront();
+//             r.safari();
+//             document.getElementById(state).style.display = "block";
+//             current = skill;
+//         };
+//         shapes[0].onclick = function () {
+//             shapes.animate({fill: "#d031a6", stroke: "#d031a6"}, 500);
+//             shapes.toFront();
+//             r.safari();
+//         };
+//         if (skill == "primaryprojectile") {
+//             shapes[0].onmouseover();
+//         }
+//     })(projectiles[skill], skill);
+// }
