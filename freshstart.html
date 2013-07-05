@@ -9,37 +9,24 @@
         <!-- <script src="popup.js"></script> -->
         <script type="text/javascript">
 	        $(document).ready(function() {
-	        	window.paper = Raphael("raphael", 500, 500);
-	        	// window.circle = paper.circle(125, 125, 100);
-	        	// window.circle2 = paper.circle(250, 250, 100);
+	        	window.paper = Raphael("raphael", 900, 900);
+	        	
 
-	        	// circle.attr("fill", "red");
-	        	// circle2.attr("fill", "green");
-
-	        	// circle.click(function(e) {
-	        	// 	circle.attr("fill", "blue");
-	        	// 	$('#primaryprojectile').toggle();
-	        	// });
-
-	        	// circle2.click(function(e) {
-	        	// 	this.attr("fill", "orange");
-	        	// 	$('#p_ae').toggle();
-	        	// });
 
 	        	// Grab your data and store in an array
-	        	var data = [{description: "Cool ability"}, {description: "Shitty ability"}, {description: "Meh ability"}];
+	        	var data = [
+		        	{description: "Cool ability"}, 
+		        	{description: "Shitty ability"}, 
+		        	{description: "Meh ability"}, 
+		        	{description: "I wanna be drunk. drunk. drunk"}
+	        	];
 
-	        	{
-	        		description: "desc",
-	        		effect: "effect",
-	        		range: "range"
-	        	}
 
 	        	// Starts at the end of the array and loops backwards
 	        	for (var i = data.length - 1; i >= 0; i--) {
-	        		var x = (i+1) * 125;
-	        		var y = (i+1) * 125;
-	        		var r = 100;
+	        		var x = (i+1) * 155; // left 'n right'
+	        		var y = (i+1) * 155; //down 'n up
+	        		var r = 100; //radius 
 	        		
 	        		paper.circle(x, y, r)
 	        				 .attr("fill", Raphael.getColor())
@@ -49,8 +36,13 @@
 	        				 });
 	        	};
 
+	        	
+	        	connections.push(paper.connection(shapes[0], shapes[1], "#5b5359", "#5b5359"));
 	        });
         </script>
+
+
+
 
         <style type="text/css">
         	#primaryprojectile,
@@ -61,7 +53,13 @@
     </head>
     <body>
 
-        <div id="raphael"></div>
+        <div id="raphael">
+					<div id="myDialog" title="Basic dialog">
+					    <p>This is the default dialog.
+					       The dialog window can be moved, resized and
+					       closed with the 'x' icon.</p>
+					</div>
+        </div>
         <div id="holder"></div>
         <div id="infoholder">
             
@@ -87,3 +85,25 @@
         
     </body>
 </html>
+<!-- 						// !inconvenient way to display circle!
+	        	// window.circle = paper.circle(125, 125, 100);
+	        	// window.circle2 = paper.circle(250, 250, 100);
+
+	        	// circle.attr("fill", "red");
+	        	// circle2.attr("fill", "green");
+
+	        	// circle.click(function(e) {
+	        	// 	circle.attr("fill", "blue");
+	        	// 	$('#primaryprojectile').toggle();
+	        	// });
+
+	        	// circle2.click(function(e) {
+	        	// 	this.attr("fill", "orange");
+	        	// 	$('#p_ae').toggle();
+	        	// }); 
+	        	        	// {
+	        	// 	description: "desc",
+	        	// 	effect: "effect",
+	        	// 	range: "range"
+	        	// }
+-->

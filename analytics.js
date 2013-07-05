@@ -1,3 +1,5 @@
+
+//draws grid of graph
 Raphael.fn.drawGrid = function (x, y, w, h, wv, hv, color) {
     color = color || "#000";
     var path = ["M", Math.round(x) + .5, Math.round(y) + .5, "L", Math.round(x + w) + .5, Math.round(y) + .5, Math.round(x + w) + .5, Math.round(y + h) + .5, Math.round(x) + .5, Math.round(y + h) + .5, Math.round(x) + .5, Math.round(y) + .5],
@@ -11,6 +13,8 @@ Raphael.fn.drawGrid = function (x, y, w, h, wv, hv, color) {
     }
     return this.path(path.join(",")).attr({stroke: color});
 };
+
+
 
 $(function () {
     $("#data").css({
@@ -76,7 +80,7 @@ window.onload = function () {
     label.push(r.text(60, 12, "24 hits").attr(txt));
     label.push(r.text(60, 27, "22 September 2008").attr(txt1).attr({fill: color}));
     label.hide();
-    var frame = r.popup(100, 100, label, "right").attr({fill: "#821d7b", stroke: "#666", "stroke-width": 2, "fill-opacity": .7}).hide();
+    var frame = r.popup(100, 100, label, "right").attr({fill: "#000", stroke: "#666", "stroke-width": 2, "fill-opacity": .7}).hide();
 
     var p, bgpp;
     for (var i = 0, ii = labels.length; i < ii; i++) {
