@@ -5,14 +5,12 @@
         <title>Raphaël · Graffle</title>
         <script src="jquery.js"></script>
         <script src="raphael.js" type="text/javascript" charset="utf-8"></script>
-<!--         // <script src="graffle.js" type="text/javascript" charset="utf-8"></script> -->
+        <script src="freshstart.js" type="text/javascript" charset="utf-8"></script>
+        <link rel="stylesheet" href="freshstart.css" type="text/css" media="screen">
         <!-- <script src="popup.js"></script> -->
         <script type="text/javascript">
 	        $(document).ready(function() {
 	        	window.paper = Raphael("raphael", 900, 900);
-	        	
-
-
 	        	// Grab your data and store in an array
 	        	var data = [
 		        	{description: "Cool ability"}, 
@@ -34,11 +32,9 @@
 									 .click(function() {
 	        						$('#holder').text(this.data("desc"));
 	        				 });
-	        	};
 
-	        	
-	        	connections.push(paper.connection(shapes[0], shapes[1], "#5b5359", "#5b5359"));
-	        });
+	      	};	
+	      });
         </script>
 
 
@@ -52,7 +48,6 @@
         </style>
     </head>
     <body>
-
         <div id="raphael">
 					<div id="myDialog" title="Basic dialog">
 					    <p>This is the default dialog.
@@ -61,6 +56,7 @@
 					</div>
         </div>
         <div id="holder"></div>
+        <div id="textbox"></div>
         <div id="infoholder">
             
             <div id="primaryprojectile">
